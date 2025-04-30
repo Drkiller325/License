@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Einstein Virtual Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="einstein-character">
+            <img src="/static/Albert_Einstein.jpg" alt="Einstein Avatar">
+            <div id="lip-sync-container"></div>
+        </div>
+
+        <div id="chat-interface">
+            <div id="chat-messages"></div>
+            <div id="input-area">
+                <input type="text" id="user-message" placeholder="Ask Einstein something...">
+                <button id="text-send">Send</button>
+                <button id="voice-send">🎤 Voice</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/interactions.js"></script>
+
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>

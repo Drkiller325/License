@@ -1,0 +1,213 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 600px;
+}
+
+/* Einstein Character Section */
+#einstein-character {
+    flex: 1;
+    background-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+#einstein-character img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #495057;
+    margin-bottom: 20px;
+}
+
+/* Audio Waveform Container */
+#lip-sync-container {
+    width: 200px;
+    height: 60px;
+    background-color: #dee2e6;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+/* Audio Waveform Bars */
+.waveform-bar {
+    width: 4px;
+    height: 5px;
+    background-color: #007bff;
+    border-radius: 2px;
+    transition: height 0.1s ease;
+}
+
+/* Chat Interface */
+#chat-interface {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+}
+
+#chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    clear: both;
+}
+
+.message.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    float: right;
+}
+
+.message.einstein {
+    background-color: #e9ecef;
+    color: #212529;
+    align-self: flex-start;
+    float: left;
+}
+
+#input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#user-message {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#text-send, #voice-send {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#text-send:hover, #voice-send:hover {
+    background-color: #0056b3;
+}
+
+#voice-send {
+    background-color: #28a745;
+}
+
+#voice-send:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    #einstein-character, #chat-interface {
+        flex: none;
+    }
+
+    #einstein-character img {
+        width: 150px;
+        height: 150px;
+    }
+
+    #lip-sync-container {
+        width: 150px;
+    }
+}
+
+/* Scrollbar Styling */
+#chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Loading indicator */
+.message.loading {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.message.loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* System message styling */
+.message.system {
+    background-color: #f8d7da;
+    color: #721c24;
+    align-self: center;
+    float: none;
+    margin: 10px auto;
+    font-style: italic;
+}
